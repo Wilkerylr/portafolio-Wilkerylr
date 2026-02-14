@@ -9,7 +9,7 @@ setInterval (() => {
 document.addEventListener("DOMContentLoaded", function() {
 
     let claro_button = document.getElementById("tema_Change");
-
+    obtenerMisRepositorios();
 
     let temaActual = localStorage.getItem("tema");
     
@@ -61,8 +61,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 }); });
 
+async function obtenerMisRepositorios() {
+    try {
+        const response = await fetch('https://api.github.com/users/Wilkerylr/repos');
+        if (!response.ok) {
+            throw new Error('Error al obtener los repositorios');
+        }
+        const repositorios = await response.json();
 
-
+        const repositorios_List = document.querySelector('.repositorios_list');
+        repositorios_List.innerHTML = " ";
+        
+        repositorios.forEach(repo => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${repo.html_url}" target="_blank" class="repo-link">${repo.name} ${repo.description ? `: ${repo.description}` : ''}</a>`;
+            repositorios_List.appendChild(li);  
+        });
+    } catch (error) {
+        console.error('Error al obtener los repositorios:', error);
+    }
+}
 
 
 

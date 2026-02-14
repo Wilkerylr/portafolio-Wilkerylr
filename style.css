@@ -41,7 +41,25 @@
     --footer-border: #b5e3c7;
     --hero-gradient: radial-gradient(circle at center, #a0db9b 20%, rgba(93, 194, 89) 100%);
 }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    padding-bottom: 10px;
+    
+}
+.repo-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
 
+.repositorios{
+    list-style: none;
+    padding: 11%;
+    margin-top: 20px;
+}
 body {
     margin: 0;
     padding: 0;
@@ -79,7 +97,7 @@ body {
 
     #tema_Change {
         position: relative;
-        width: 120px;
+        width: 80px;
         height: 40px;
         background: none;
         border: 2px solid var(--primary-color);
@@ -179,7 +197,7 @@ body {
 
 /* Grid de Proyectos */
 .proyectos-section { 
-    padding-left: 5%;
+    padding-left: 11%;
     padding-right: 5%;
     padding-bottom: 50px;
 }
