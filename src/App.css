@@ -209,11 +209,16 @@ body {
     border: 1px solid var(--card-border);
 }
 
-.card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary-color); }
 
-.card-img { height: 200px; background-color: var(--card-img-bg); }
+.card-img { 
+    height: 200px; 
+    background-color: var(--card-img-bg); }
 
-.card-info { padding: 20px; }
+.card-info { 
+    padding: 20px; }
 
 .tags span {
     font-size: 0.8rem;

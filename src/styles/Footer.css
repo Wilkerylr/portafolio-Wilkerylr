@@ -1,0 +1,24 @@
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    background: var(--bg-dark);
+    color: var(--text-dim);
+    border-top: 1px solid var(--footer-border);
+    gap: 6px;
+}
+
+.footer h3,
+.footer p {
+    margin: 0;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}

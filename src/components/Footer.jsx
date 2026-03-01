@@ -1,4 +1,5 @@
-// Componente de pie de página con información de contacto
+import '../styles/Footer.css';
+
 const Footer = () => {
   return (
     <footer className="footer">
