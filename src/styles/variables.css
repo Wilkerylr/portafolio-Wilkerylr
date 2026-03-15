@@ -1,0 +1,61 @@
+:root {
+    --primary-color: #00f2ff;
+    --bg-dark: #0a0a0b;
+    --card-bg: #16161a;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --gradiente: repeating-linear-gradient(
+        135deg,
+        #0d0d11 0px,
+        #1a1a2e 40px,
+        #0a0a0b 40px,
+        #0a0a0b 80px
+    );
+    --bg-navbar: rgba(10, 10, 11, 0.452);
+    --card-border: #333;
+    --card-img-bg: #25252b;
+    --tag-bg: #333;
+    --footer-border: #333;
+    --hero-gradient: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0b 100%);
+}
+
+.claro {
+    --primary-color: #366435;
+    --bg-dark: #f0f0f0;
+    --card-bg: #ffffff;
+    --text-main: #000000;
+    --text-dim: #16161a;
+    --gradiente: repeating-linear-gradient(
+        135deg,
+        #5b7764 0px,
+        #83b694 40px,
+        #8cb38f 40px,
+        #8cb38f 80px
+    );
+    --bg-navbar: rgba(93, 194, 89, 0.493);
+    --card-border: #b5e3c7;
+    --card-img-bg: #e6f5ea;
+    --tag-bg: #b5e3c7;
+    --footer-border: #b5e3c7;
+    --hero-gradient: radial-gradient(circle at center, #a0db9b 20%, rgba(93, 194, 89) 100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    scroll-behavior: smooth;
+}
+
+#Fondo_gradiente {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradiente);
+    opacity: 0.15;
+    z-index: -1;
+}

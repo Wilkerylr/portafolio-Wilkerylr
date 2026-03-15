@@ -209,11 +209,24 @@ body {
     border: 1px solid var(--card-border);
 }
 
+<<<<<<< HEAD
 .card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
 
 .card-img { height: 200px; background-color: var(--card-img-bg); }
 
 .card-info { padding: 20px; }
+=======
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary-color); }
+
+.card-img { 
+    height: 200px; 
+    background-color: var(--card-img-bg); }
+
+.card-info { 
+    padding: 20px; }
+>>>>>>> 8b30a99bc6ad3782820c60828ae1c43dc222d043
 
 .tags span {
     font-size: 0.8rem;
