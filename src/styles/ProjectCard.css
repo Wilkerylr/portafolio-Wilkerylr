@@ -1,0 +1,183 @@
+/* ── Sección de proyectos ── */
+.proyectos-section {
+    padding: 40px 11% 40px;
+}
+
+/* Contenedor preparado para carrusel */
+.grid-proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 24px;
+}
+
+/* ── Tarjeta principal: layout horizontal como el hero ── */
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    min-height: 280px;
+}
+
+/* Alterna la dirección en tarjetas pares para variedad visual */
+.project-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* ── Panel izquierdo: preview/imagen ── */
+.project-card-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-card-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--card-bg) 0%, transparent 100%);
+    opacity: 0.6;
+}
+
+.project-card:hover .project-card-preview {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.08);
+}
+
+/* Imagen real del proyecto */
+.project-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+}
+.project-preview-icon {
+    width: 60%;
+    height: auto;
+    max-width: 200px;
+    color: var(--primary-color);
+    opacity: 0.2;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-preview-icon {
+    opacity: 0.4;
+}
+
+/* ── Panel derecho: contenido ── */
+.project-card-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* Etiqueta superior */
+.project-card-label {
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Título del proyecto */
+.project-card-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Caja de descripción */
+.project-card-desc-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Descripción */
+.project-card-description {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Etiquetas de tecnologías */
+.project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.project-card:hover .project-tag {
+    opacity: 1;
+}
+
+/* Botón de enlace */
+.project-card-btn {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 10px 24px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-card-btn:hover {
+    background: var(--primary-color);
+    color: #000;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .proyectos-section { padding: 30px 6% 30px; }
+    .grid-proyectos { gap: 24px; }
+
+    .project-card,
+    .project-card:nth-child(even) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-card-title { font-size: 1.3rem; }
+}

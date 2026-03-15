@@ -1,3 +1,4 @@
+/* Pie de página */
 .footer {
     position: relative;
     display: flex;
@@ -18,7 +19,4 @@
     text-align: center;
 }
 
-.footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
+.footer a { color: var(--primary-color); text-decoration: none; }

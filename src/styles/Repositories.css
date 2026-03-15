@@ -1,34 +1,123 @@
+/* Sección de repositorios */
 .repositorios {
-    padding: 2% 5% 50px 11%;
+    padding: 40px 11%;
 }
 
-.repositorios h2 {
-    margin-bottom: 40px;
+/* Mensajes de estado */
+.repo-status {
+    color: var(--text-dim);
+    font-size: 0.95rem;
 }
 
-.repositorios_list {
-    list-style: none;
-    padding: 0;
+.repo-error {
+    color: #ff6b6b;
+}
+
+/* Grid de tarjetas de repositorios */
+.repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
 }
 
-.repositorios_list li {
+/* Tarjeta de repositorio */
+.repo-card {
+    position: relative;
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    transition: transform 0.3s;
+    border-radius: 16px;
     border: 1px solid var(--card-border);
-}
-
-.repositorios_list li:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-}
-
-.repo-link {
-    color: var(--primary-color);
+    overflow: hidden;
     text-decoration: none;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 180px;
+}
+
+.repo-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 242, 255, 0.05);
+}
+
+/* Línea de acento superior */
+.repo-card-accent {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+/* Cuerpo de la tarjeta */
+.repo-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Cabecera con iconos */
+.repo-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Icono de carpeta */
+.repo-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color);
+}
+
+/* Icono de enlace externo */
+.repo-external {
+    width: 18px;
+    height: 18px;
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+}
+
+.repo-card:hover .repo-external {
+    color: var(--primary-color);
+}
+
+/* Nombre del repositorio */
+.repo-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Descripción del repositorio */
+.repo-description {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+/* Lenguaje de programación */
+.repo-language {
+    font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 3px 10px;
+    border-radius: 20px;
+    align-self: flex-start;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.repo-card:hover .repo-language {
+    opacity: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+    .repositorios { padding: 30px 6%; }
+    .repo-grid { grid-template-columns: 1fr; }
 }

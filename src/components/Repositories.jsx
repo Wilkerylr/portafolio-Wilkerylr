@@ -1,43 +1,57 @@
 import { useGithubRepos } from '../hooks/useGithubRepos';
-<<<<<<< HEAD
-
-// Componente que muestra los repositorios de GitHub
-const Repositories = () => {
-  // Hook personalizado que obtiene los repositorios desde la API de GitHub
-=======
-import RepoItem from './RepoItem';
+import { RepoFolderIcon, ExternalLinkIcon } from './RepoIcons.jsx';
 import '../styles/Repositories.css';
 
+// Componente que muestra los repositorios de GitHub en formato tarjeta
 const Repositories = () => {
->>>>>>> 8b30a99bc6ad3782820c60828ae1c43dc222d043
+  // Hook personalizado que obtiene los repositorios desde la API de GitHub
   const { repos, loading, error } = useGithubRepos('Wilkerylr');
 
   return (
-    <section className="repositorios">
+    <section id="repositorios" className="repositorios">
       <h2>Repositorios de GitHub</h2>
-      <ul className="repositorios_list">
-<<<<<<< HEAD
-        {/* Mensaje de carga */}
-        {loading && <li>Cargando repositorios...</li>}
 
-        {/* Mensaje de error si falla la petición */}
-        
-        {error && <li>Error: {error}</li>}
-        {/* Mapeo de repositorios para crear lista dinámica */}
+      {/* Mensaje de carga */}
+      {loading && <p className="repo-status">Cargando repositorios...</p>}
+
+      {/* Mensaje de error si falla la petición */}
+      {error && <p className="repo-status repo-error">Error: {error}</p>}
+
+      {/* Grid de tarjetas de repositorios */}
+      <div className="repo-grid">
         {repos.map(repo => (
-          <li key={repo.id}>
-            <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-link">
-              {repo.name}{repo.description ? `: ${repo.description}` : ''}
-            </a>
-          </li>
-=======
-        {loading && <li>Cargando repositorios...</li>}
-        {error && <li>Error: {error}</li>}
-        {repos.map(repo => (
-          <RepoItem key={repo.id} repo={repo} />
->>>>>>> 8b30a99bc6ad3782820c60828ae1c43dc222d043
+          <a
+            key={repo.id}
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="repo-card"
+          >
+            {/* Línea de acento superior */}
+            <div className="repo-card-accent" />
+
+            <div className="repo-card-body">
+              <div className="repo-card-header">
+                <RepoFolderIcon />
+                <ExternalLinkIcon />
+              </div>
+
+              {/* Nombre del repositorio */}
+              <h3 className="repo-name">{repo.name}</h3>
+
+              {/* Descripción del repositorio */}
+              <p className="repo-description">
+                {repo.description || 'Sin descripción'}
+              </p>
+
+              {/* Lenguaje principal del repositorio */}
+              {repo.language && (
+                <span className="repo-language">{repo.language}</span>
+              )}
+            </div>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   );
 };
