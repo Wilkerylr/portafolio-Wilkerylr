@@ -44,9 +44,13 @@ const Repositories = () => {
                 {repo.description || 'Sin descripción'}
               </p>
 
-              {/* Lenguaje principal del repositorio */}
-              {repo.language && (
-                <span className="repo-language">{repo.language}</span>
+              {/* Solo muestra tecnologías si el repositorio tiene topics definidos */}
+              {repo.topics?.length > 0 && (
+                <div className="repo-topics">
+                  {repo.topics.map((topic, i) => (
+                    <span key={i} className="repo-topic">{topic}</span>
+                  ))}
+                </div>
               )}
             </div>
           </a>

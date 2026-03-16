@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 
 const GITHUB_URL = 'https://api.github.com/users/Wilkerylr/repos';
 
+// Headers necesarios para que la API de GitHub devuelva el campo topics
+const GITHUB_HEADERS = {
+  Accept: 'application/vnd.github.mercy-preview+json',
+};
+
 // Hook personalizado para obtener repositorios directamente desde la API de GitHub
 export const useGithubRepos = () => {
   const [repos, setRepos] = useState([]);
@@ -11,7 +16,7 @@ export const useGithubRepos = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch(GITHUB_URL);
+        const response = await fetch(GITHUB_URL, { headers: GITHUB_HEADERS });
         if (!response.ok) throw new Error('Error al obtener los repositorios');
         const data = await response.json();
         setRepos(data);
