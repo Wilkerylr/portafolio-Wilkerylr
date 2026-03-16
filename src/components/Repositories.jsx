@@ -4,8 +4,8 @@ import '../styles/Repositories.css';
 
 // Componente que muestra los repositorios de GitHub en formato tarjeta
 const Repositories = () => {
-  // Hook personalizado que obtiene los repositorios desde la API de GitHub
-  const { repos, loading, error } = useGithubRepos('Wilkerylr');
+  // Hook que obtiene los repositorios directamente desde GitHub
+  const { repos, loading, error } = useGithubRepos();
 
   return (
     <section id="repositorios" className="repositorios">
