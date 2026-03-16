@@ -1,45 +1,45 @@
 /* Variables globales de color y gradientes para tema oscuro (por defecto) */
 :root {
-    --primary-color: #00f2ff;
-    --bg-dark: #0a0a0b;
-    --card-bg: #16161a;
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
+    --primary-color: #a78bfa;
+    --bg-dark: #0f0f13;
+    --card-bg: #1a1a23;
+    --text-main: #e2e2e9;
+    --text-dim: #8b8b9e;
     --gradiente: repeating-linear-gradient(
         135deg,
-        #0d0d11 0px,
-        #1a1a2e 40px,
-        #0a0a0b 40px,
-        #0a0a0b 80px
+        #0f0f13 0px,
+        #16161f 40px,
+        #0f0f13 40px,
+        #0f0f13 80px
     );
-    --bg-navbar: rgba(10, 10, 11, 0.452);
-    --card-border: #333;
-    --card-img-bg: #25252b;
-    --tag-bg: #333;
-    --footer-border: #333;
-    --hero-gradient: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0b 100%);
+    --bg-navbar: rgba(15, 15, 19, 0.6);
+    --card-border: #2e2e3e;
+    --card-img-bg: #22222e;
+    --tag-bg: #2e2e3e;
+    --footer-border: #2e2e3e;
+    --hero-gradient: radial-gradient(circle at center, #1a1a2e 0%, #0f0f13 100%);
 }
 
-/* Variables para tema claro */
+/* Variables para tema claro - Soft Mint */
 .claro {
-    --primary-color: #366435;
-    --bg-dark: #f0f0f0;
+    --primary-color: #065f46;
+    --bg-dark: #f0f4f2;
     --card-bg: #ffffff;
-    --text-main: #000000;
-    --text-dim: #16161a;
+    --text-main: #1a2e27;
+    --text-dim: #4a6358;
     --gradiente: repeating-linear-gradient(
         135deg,
-        #5b7764 0px,
-        #83b694 40px,
-        #8cb38f 40px,
-        #8cb38f 80px
+        #e6eeea 0px,
+        #d1e6db 40px,
+        #e6eeea 40px,
+        #e6eeea 80px
     );
-    --bg-navbar: rgba(93, 194, 89, 0.493);
-    --card-border: #b5e3c7;
-    --card-img-bg: #e6f5ea;
-    --tag-bg: #b5e3c7;
-    --footer-border: #b5e3c7;
-    --hero-gradient: radial-gradient(circle at center, #a0db9b 20%, rgba(93, 194, 89) 100%);
+    --bg-navbar: rgba(240, 244, 242, 0.6);
+    --card-border: #b8d4c8;
+    --card-img-bg: #e0ede7;
+    --tag-bg: #d1e6db;
+    --footer-border: #b8d4c8;
+    --hero-gradient: radial-gradient(circle at 30% 50%, #6ee7b7 0%, #a7f3d0 40%, #f0f4f2 100%);
 }
 
 /* Estilos base del body */

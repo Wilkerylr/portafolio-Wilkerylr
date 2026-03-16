@@ -3,6 +3,21 @@
     padding: 40px 11% 40px;
 }
 
+/* Cabecera con título y badge */
+.proyectos-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Aviso de sección en construcción */
+.proyectos-aviso {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    margin: 4px 0 0 0;
+    font-style: italic;
+}
+
 /* Contenedor preparado para carrusel */
 .grid-proyectos {
     display: flex;

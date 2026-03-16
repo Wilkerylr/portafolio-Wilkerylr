@@ -1,23 +1,42 @@
 import { createAvatar } from '@dicebear/core';
 import { initials } from '@dicebear/collection';
+import { useMemo } from 'react';
 
-// Genera el avatar con DiceBear usando las iniciales de Wilker Lopez
-const avatar = createAvatar(initials, {
-  seed: 'wL',
-  scale: 50,
-  radius: 10,
-  backgroundType: ['gradientLinear'],
-});
+// Colores por tema para mantener coherencia visual
+const THEME_COLORS = {
+  oscuro: {
+    background: ['1a1a23'],
+    textColor: ['a78bfa'],
+  },
+  claro: {
+    background: ['ffffff'],
+    textColor: ['065f46'],
+  }
+};
 
-const svgString = avatar.toString();
+// Recibe el tema como prop desde Hero para reaccionar al cambio inmediatamente
+const AvatarPlaceholder = ({ theme }) => {
+  const colors = THEME_COLORS[theme] || THEME_COLORS.oscuro;
 
-// Componente que renderiza el avatar generado por DiceBear
-const AvatarPlaceholder = () => (
-  <div
-    className="hero-img avatar-placeholder"
-    aria-label="Avatar de Wilker Lopez"
-    dangerouslySetInnerHTML={{ __html: svgString }}
-  />
-);
+  // useMemo para regenerar el avatar solo cuando cambia el tema
+  const svgString = useMemo(() => {
+    return createAvatar(initials, {
+      seed: 'WL',
+      scale: 50,
+      radius: 10,
+      backgroundType: ['solid'],
+      backgroundColor: colors.background,
+      textColor: colors.textColor,
+    }).toString();
+  }, [theme]);
+
+  return (
+    <div
+      className="hero-img avatar-placeholder"
+      aria-label="Avatar de Wilker Lopez"
+      dangerouslySetInnerHTML={{ __html: svgString }}
+    />
+  );
+};
 
 export default AvatarPlaceholder;

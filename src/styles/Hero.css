@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0b 100%);
+    background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f13 100%);
     border-bottom: 1px solid var(--footer-border);
 }
 
@@ -36,6 +36,36 @@
 
 /* Texto resaltado con color primario */
 .highlight { color: var(--primary-color); }
+
+/* Tags de habilidades debajo del nombre */
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.hero-tags span {
+    font-size: 0.78rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Descripción profesional */
+.hero-bio {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin: 0;
+    max-width: 480px;
+    border-left: 2px solid var(--primary-color);
+    padding-left: 14px;
+}
 
 /* Botón principal */
 .btn-main {

@@ -1,63 +1,40 @@
-const express =require ("express");
-const cors = require ("cors");
+const express = require('express');
+const cors = require('cors');
 
-
-require("dotenv").config();
-
+require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-
-app.get("/", (req, res) => {
-    res.send("Bienvenidos a mi primer api con Express");
+app.get('/', (req, res) => {
+    res.send('Bienvenidos a mi primer API con Express');
 });
 
-
-
-app .get("/saludo", (req, res) => {
-    res.send({"saludo": "Hola, este es un saludo desde mi API"});
+app.get('/saludo', (req, res) => {
+    res.json({ saludo: 'Hola, este es un saludo desde mi API' });
 });
 
-app.post("/api/proyectos", async (req, res) => {
-    
-    try{
-        const proyectos = ["website", "juegos", "Mobileapp"];
-
-        console.log("me hicieron una peticion post ");
-
-        const datos = req.body;
-
-        //console.log(req.body);
-        
-        res.status(201).json({
-            MisProyectos: proyectos
-        });
-    }
-        catch(error){
-            res.status(400).send({"error": "faltan datos o formato incorrecto"});
-        }
-    });
-
-
-
-
-app .get("/api/repos", async (req, res) => {
+app.post('/api/proyectos', (req, res) => {
     try {
-        const response = await fetch(`https://api.github.com/users/wilkerylr/repos`);
+        const proyectos = ['website', 'juegos', 'Mobileapp'];
+        res.status(201).json({ MisProyectos: proyectos });
+    } catch (error) {
+        res.status(400).json({ error: 'Faltan datos o formato incorrecto' });
+    }
+});
+
+// Obtiene los repositorios de GitHub y los retorna al cliente
+app.get('/api/repos', async (req, res) => {
+    try {
+        const response = await fetch('https://api.github.com/users/wilkerylr/repos');
         if (!response.ok) throw new Error('Error al obtener los repositorios');
         const data = await response.json();
-        const repositorios= res.json(data);
-        
-
-        console.log(repositorios);
-        res.send(repositorios);
-
+        res.json(data);
     } catch (err) {
-        res.status(500).json({ error: err.message });
         console.error('Error al obtener los repositorios:', err);
+        res.status(500).json({ error: err.message });
     }
 });
 

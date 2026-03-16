@@ -1,26 +1,43 @@
 import { useState, useEffect } from 'react';
 
+const API_URL = 'http://localhost:4321/api/repos';
+const GITHUB_URL = (username) => `https://api.github.com/users/${username}/repos`;
+
 // Hook personalizado para obtener repositorios de GitHub
+// Intenta primero la API propia, si falla hace fallback directo a GitHub
 export const useGithubRepos = (username) => {
-  // Estados para manejar los repositorios, carga y errores
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Efecto que obtiene los repositorios al montar el componente
   useEffect(() => {
-    // Función asíncrona para hacer la petición a la API de GitHub
     const fetchRepos = async () => {
       try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos`);
-        if (!response.ok) throw new Error('Error al obtener los repositorios');
-        const data = await response.json();
+        // Intenta obtener repos desde la API propia
+        let data = null;
+
+        try {
+          const response = await fetch(API_URL);
+          if (response.ok) {
+            data = await response.json();
+          }
+        } catch {
+          // API propia no disponible, se usará fallback
+          console.warn('API propia no disponible, usando GitHub directamente.');
+        }
+
+        // Fallback directo a GitHub si la API propia falló
+        if (!data) {
+          const response = await fetch(GITHUB_URL(username));
+          if (!response.ok) throw new Error('Error al obtener los repositorios');
+          data = await response.json();
+        }
+
         setRepos(data);
       } catch (err) {
         setError(err.message);
         console.error('Error al obtener los repositorios:', err);
       } finally {
-        // Siempre desactiva el estado de carga al terminar
         setLoading(false);
       }
     };

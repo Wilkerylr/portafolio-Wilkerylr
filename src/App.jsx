@@ -17,7 +17,7 @@ function App() {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
         {/* Sección hero con presentación */}
-        <Hero />
+        <Hero theme={theme} />
         {/* Fondo con gradiente decorativo */}
         <div id="container">
           <div id="Fondo_gradiente"></div>
